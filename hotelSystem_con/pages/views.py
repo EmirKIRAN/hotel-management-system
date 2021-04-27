@@ -12,3 +12,9 @@ def room_list(request):
 
 def room_detail(request):
     return render(request, 'room.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')

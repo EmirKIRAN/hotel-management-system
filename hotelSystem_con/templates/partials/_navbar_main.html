@@ -13,16 +13,16 @@
                 <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbar-kervan">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{% url 'index' %}" class="nav-link">Home</a>
+                            <a href="{% url 'index' %}" class="nav-link {% if '/' == request.path %}active{% endif %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'hotels' %}" class="nav-link">Hotels</a>
+                            <a href="{% url 'hotels' %}" class="nav-link {% if 'hotels' in request.path %}active{% endif %}">Hotels</a>
                         </li>
                         <li class="nav-item">
                             <a href="{% url 'index' %}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item ml-4">
-                            <a href="#" class="btn btn-success text-white" data-toggle="modal" data-target="#myModal">
+                            <a href="{% url 'login' %}" class="btn btn-success text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-door-open-fill mb-1" viewBox="0 0 16 16">
                                     <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
                                 </svg>
@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="btn btn-success text-white ml-2">
+                            <a href="{% url 'register' %}" class="btn btn-success text-white ml-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-right mr-1 mb-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
