@@ -1,0 +1,62 @@
+    
+    {% extends 'partials/_base_main.html' %}
+    {% load static %}
+
+    {% block style %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
+    {% endblock %}
+    
+    {% block content %}
+    <!-- Table -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Rooms List</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive" id="proTeamScroll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Cust.</th>
+                                        <th>Hotel Name</th>
+                                        <th>Number of room</th>
+                                        <th>Beds</th>
+                                        <th>Price</th>
+                                        <th class="text-center">View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-center">
+                                        <td class="table-img"><img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0 font-13">Appartamento Benincampi</h6>
+                                            <p class="m-0 font-12">
+                                                Assigned to<span class="col-green font-weight-bold"> Airi Satou</span>
+                                            </p>
+                                        </td>
+                                        <td><span>4</span></td>
+                                        <td>
+                                            <div class="badge-outline col-red">2</div>
+                                        </td>
+                                        <td>
+                                            <div class="progress-text">470€</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="" class="btn btn-success text-center">Detail</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <!-- Table end -->
+    {% endblock %}

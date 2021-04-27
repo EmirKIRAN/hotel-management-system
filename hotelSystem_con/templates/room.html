@@ -1,0 +1,190 @@
+{% extends 'partials/_base_main.html' %}
+{% load static %}
+
+        {% block style %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        {% endblock %}
+
+        {% block content %}
+        <!-- ? Detail  -->
+        <div class="container pb50" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-md-9 mb40">
+                    <article>
+                        <img src="https://images.unsplash.com/photo-1455734729978-db1ae4f687fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="" class="img-fluid mb30">
+                        <div class="post-content">
+                            <h3 class="mb-5">A smart template that works 24/7 for your company</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
+                            <ul class="list-inline share-buttons">
+                                <li class="list-inline-item">Share Post:</li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
+                                        <i class="fa fa-facebook"></i>
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
+                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
+                                        <i class="fa fa-linkedin"></i>
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr class="mb40">
+                            <h4 class="mb40 text-uppercase font500">About Author</h4>
+                            <div class="media mb40">
+                                <i class="d-flex mr-3 fa fa-user-circle fa-5x text-primary"></i>
+                                <div class="media-body">
+                                    <h5 class="mt-0 font700">Jane Doe</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                            <hr class="mb40">
+                            <h4 class="mb40 text-uppercase font500">Comments</h4>
+                            <div class="media mb40">
+                                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                <div class="media-body">
+                                    <h5 class="mt-0 font400 clearfix">
+                                                <a href="#" class="float-right">Reply</a>
+                                                Jane Doe</h5> Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                            <div class="media mb40">
+                                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                <div class="media-body">
+                                    <h5 class="mt-0 font400 clearfix">
+                                                <a href="#" class="float-right">Reply</a>
+                                                Jane Doe</h5> Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                            <div class="media mb40">
+                                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                <div class="media-body">
+                                    <h5 class="mt-0 font400 clearfix">
+                                                <a href="#" class="float-right">Reply</a>
+                                                Jane Doe</h5> Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                            <hr class="mb40">
+                            <h4 class="mb40 text-uppercase font500">Post a comment</h4>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="john@doe.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control" rows="5" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="clearfix float-right">
+                                    <button type="button" class="btn btn-primary btn-lg">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </article>
+                    <!-- post article-->
+        
+                </div>
+                <div class="col-md-3 mb40">
+                    <!--/col-->
+                    <div class="mb40">
+                        <ul class="list-group">
+                            <li class="list-group-item active text-center">Room details</li>
+                            <li class="list-group-item">
+                                <i class="fas fa-bed" style="font-size: 22px;"></i>
+                                <p class="d-inline m-0 float-right font-weight-bold">4</p>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-money-bill-wave" style="font-size: 22px;"></i>
+                                <p class="d-inline m-0 float-right font-weight-bold">$250</p>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-city" style="font-size: 22px;"></i>
+                                <p class="d-inline m-0 float-right font-weight-bold">London</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/col-->
+                    <button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Reservation
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- ? Detail end -->
+        
+        <!-- Modal -->
+            <div class="container">
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header bg-warning">
+                                <h4 class="modal-title">Payment</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form class="row g-3" action="https://google.com" method="GET">
+                                    <div class="col-md-6 mt-2">
+                                        <label for="surname" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mt-2">
+                                        <label for="surname" class="form-label">Surname</label>
+                                        <input type="text" class="form-control" id="surname" required>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <label for="email" class="form-label">E-mail</label>
+                                        <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <label for="adress" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="adress" placeholder="1234 Main St">
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-4 mt-3">
+                                        <i class="fab fa-cc-visa text-primary float-right" style="font-size: 50px;"></i>
+                                    </div>
+                                    <div class="col-md-4 mt-3 text-center">
+                                        <i class="fab fa-cc-discover text-danger" style="font-size: 50px;"></i>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <i class="fab fa-cc-mastercard text-warning float-left" style="font-size: 50px;"></i>
+                                    </div>
+                                    <div class="col-md-12 mt-4">
+                                        <label for="card_number" class="form-label">Card Number</label>
+                                        <input type="number" class="form-control" id="card_number" placeholder="**** **** *** *****" required>
+                                    </div>
+                                    <div class="col-md-6 mt-3">
+                                        <label for="ex_date" class="form-label">Expiration Date</label>
+                                        <input type="text" class="form-control" id="ex_date" placeholder="mm/yy" required>
+                                    </div>
+                                    <div class="col-md-6 mt-3">
+                                        <label for="valid" class="form-label">Validation</label>
+                                        <input type="text" class="form-control" id="valid" placeholder="***" required>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-block">Create Reservation</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Modal end-->
+        {% endblock %}
