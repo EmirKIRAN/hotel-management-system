@@ -26,6 +26,7 @@ class Room(models.Model):
     title = models.CharField(max_length=100, verbose_name="İçerik başlığı")
     detail = models.TextField(verbose_name="Oda detayları")
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    available = models.BooleanField(default=False, verbose_name="Kiralandı mı?")
 
     def __str__(self):
         return self.title

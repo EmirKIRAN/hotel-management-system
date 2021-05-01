@@ -4,6 +4,7 @@
         {% block style %}
             <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         {% endblock %}
+        {% block title %} {{title}} {% endblock %}
 
         {% block content %}
         <!-- ? Detail  -->
@@ -15,7 +16,7 @@
                         <div class="post-content">
                             <h3 class="mb-5">{{room.title}}</h3>
                             
-                            <p class="lead">{{room.detail}}</p>
+                            <p class="lead">{{room.detail| linebreaks}}</p>
                             
                             <hr class="mb40">
                             <h4 class="mb40 text-uppercase font500">About Author</h4>
