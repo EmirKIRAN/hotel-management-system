@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Hotel
+from . models import Hotel, Room
 
 
 def hotel_list(request):
@@ -9,5 +9,21 @@ def hotel_list(request):
     context = {
         'hotels' : hotels
     }
-    
+
     return render(request, 'hotels.html', context=context)
+
+def hotel_detail(request, hotel_slug):
+    rooms = Room.objects.filter(hotel__slug = hotel_slug)
+    context = {
+        'rooms':rooms
+    }
+
+    return render(request, 'room_list.html', context=context)
+
+def room_detail(request, hotel_slug, room_id):
+    room = Room.objects.get(hotel__slug=hotel_slug, id=room_id)
+    context = {
+        'room':room
+    }
+
+    return render(request, 'room.html', context=context)

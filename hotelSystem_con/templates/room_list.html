@@ -15,6 +15,9 @@
                     <div class="card-header">
                         <h4>Rooms List</h4>
                     </div>
+                    {% if not rooms  %}
+                        <h5 class="my-5 text-center">Upps... Oda bulunmuyor</h5>
+                    {% endif %}
                     <div class="card-body">
                         <div class="table-responsive" id="proTeamScroll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
                             <table class="table table-striped">
@@ -29,26 +32,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for room in rooms %}
                                     <tr class="text-center">
-                                        <td class="table-img"><img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="">
+                                        <td class="table-img"><img src="{{room.image.url}}" alt="">
                                         </td>
                                         <td>
-                                            <h6 class="mb-0 font-13">Appartamento Benincampi</h6>
-                                            <p class="m-0 font-12">
-                                                Assigned to<span class="col-green font-weight-bold"> Airi Satou</span>
-                                            </p>
+                                            <h6 class="mb-0 font-13">{{room.hotel.name}}</h6>
                                         </td>
-                                        <td><span>4</span></td>
+                                        <td><span>{{room.number}}</span></td>
                                         <td>
-                                            <div class="badge-outline col-red">2</div>
+                                            <div class="badge-outline col-red">{{room.number_of_beds}}</div>
                                         </td>
                                         <td>
-                                            <div class="progress-text">470€</div>
+                                            <div class="progress-text">{{room.price}} €</div>
                                         </td>
                                         <td class="text-center">
-                                            <a href="" class="btn btn-success text-center">Detail</a>
+                                            <a href="{% url 'room_detail' room.hotel.slug room.id %}" class="btn btn-success text-center">Detail</a>
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

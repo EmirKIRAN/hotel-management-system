@@ -18,5 +18,18 @@ class Hotel(models.Model):
     def __str__(self):
         return self.name
 
+class Room(models.Model):
+    number = models.CharField(max_length=5,verbose_name="Oda numarası")
+    number_of_beds = models.IntegerField(verbose_name="Yatak sayısı")
+    price = models.FloatField(verbose_name="Oda fiyatı")
+    image = models.ImageField(upload_to="rooms/")
+    title = models.CharField(max_length=100, verbose_name="İçerik başlığı")
+    detail = models.TextField(verbose_name="Oda detayları")
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+    
+
 
 
