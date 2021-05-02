@@ -103,7 +103,8 @@
     
             <!-- Registeration Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="#" class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate method="POST">
+                    {% csrf_token %}
                     <div class="row">
     
                         <!-- First Name -->
@@ -113,7 +114,7 @@
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.first_name}}
                         </div>
     
                         <!-- Last Name -->
@@ -123,7 +124,7 @@
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.last_name}}
                         </div>
     
                         <!-- Email Address -->
@@ -133,7 +134,7 @@
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.email}}
                         </div>
 
                         <!-- Username -->
@@ -143,7 +144,7 @@
                                     <i class="fas fa-user-circle text-muted"></i>
                                 </span>
                             </div>
-                            <input type="text" name="username" placeholder="Username" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.username}}
                         </div>
 
                         <!-- Password -->
@@ -153,7 +154,7 @@
                                     <i class="fa fa-lock text-muted"></i>
                                 </span>
                             </div>
-                            <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.password1}}
                         </div>
     
                         <!-- Password Confirmation -->
@@ -163,14 +164,12 @@
                                     <i class="fa fa-lock text-muted"></i>
                                 </span>
                             </div>
-                            <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" required>
+                            {{form.password2}}
                         </div>
     
                         <!-- Submit Button -->
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button href="#" class="btn btn-primary btn-block py-2" type="submit">
-                                <span class="font-weight-bold">Create your account</span>
-                            </button>
+                            <input class="btn btn-primary btn-block py-2 font-weight-bold" type="submit" value="Create your account">
                         </div>
     
                         <!-- Divider Text -->

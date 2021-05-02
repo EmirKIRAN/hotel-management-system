@@ -1,0 +1,31 @@
+{% extends 'partials/_base_owner.html' %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<!-- * Container -->
+<h3 class="display-3 text-center mt-5">your hotels</h3>
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-12 mt-4 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-md-4 d-inline-block">
+                        <img src="https://images.etstur.com/files/images/hotelImages/integration/TR/213690/l/prwbhe1rxima28cfrkex.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-8 d-inline-block float-right text-center">
+                        <h4 class="card-title mb-4">Sugar Loft Apartments</h4>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse consectetur sequi veritatis eos voluptatem dolore sint quam, amet deleniti culpa autem voluptates, magni sit fuga maiores accusantium unde ipsa quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel repellendus rerum ex debitis voluptates architecto delectus quo alias? Consequuntur labore sit veritatis mollitia quo perferendis sunt at reprehenderit? Provident, sed!</p>
+                        <a href="#" class="btn btn-primary mr-2">View hotel</a>
+                        <a href="#" class="btn btn-warning">Update Hotels</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Container end -->
+
+{% endblock %}

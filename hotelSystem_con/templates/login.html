@@ -101,9 +101,10 @@ body.my-login-page {
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
 							<form method="POST" class="my-login-validation" novalidate="">
+								{% csrf_token %}
 								<div class="form-group">
 									<label>Username</label>
-									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									{{form.username}}
 									<div class="invalid-feedback">
 										Username is invalid
 									</div>
@@ -115,7 +116,7 @@ body.my-login-page {
 											Forgot Password?
 										</a>
 									</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									{{form.password}}
                                     <div class="invalid-feedback">
                                         Password is required
                                     </div>
@@ -129,13 +130,19 @@ body.my-login-page {
 								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
-										Login
-									</button>
+									<input type="submit" class="btn btn-primary btn-block" value="Login">
 								</div>
 								<div class="mt-4 text-center">
 									Don't have an account? <a href="{% url 'register' %}">Create One</a>
 								</div>
+								{% if messages %}
+									{% for message in messages %}
+									<div class="alert alert-{{message.tags}} alert-dismissible fade show my-5 text-center">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										<strong>Warning!</strong> {{message}}
+									</div>
+									{% endfor %}
+								{% endif %}
 							</form>
 						</div>
 					</div>
