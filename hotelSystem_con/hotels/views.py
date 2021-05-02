@@ -4,7 +4,6 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 from . forms import ReservationForm
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
 
 
 class HotelListView(ListView):
@@ -48,12 +47,11 @@ def search(request):
     }
     return render(request, 'hotels.html', context=context)
 
-class ReservationView(SuccessMessageMixin, FormView):
+class ReservationView(FormView):
     template_name = 'reservation.html'
     form_class = ReservationForm
     context_object_name = 'room'
     success_url = reverse_lazy('hotels')
-    success_message = "Your reservation has been created successfully"
     
     def form_valid(self, form):
         reservation = form.save(commit=False)
