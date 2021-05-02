@@ -30,6 +30,19 @@ class Room(models.Model):
 
     def __str__(self):
         return self.title
+
+class Reservation(models.Model):
+    to_first_name = models.CharField(max_length=80,verbose_name="İsim")
+    to_last_name = models.CharField(max_length=80, verbose_name="Soyad")
+    date = models.DateTimeField(verbose_name="Rezervasyon Tarihi", auto_now_add=True)
+    address = models.CharField(max_length=255, verbose_name="Adres")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Kiralanan Oda")
+    card_number = models.CharField(max_length=25,verbose_name="Kart numarası")
+    email = models.EmailField(verbose_name="Mail adresi")
+
+    def __str__(self):
+        return self.first_name
+    
     
 
 
