@@ -41,7 +41,7 @@ class Reservation(models.Model):
     email = models.EmailField(verbose_name="Mail adresi")
 
     def __str__(self):
-        return self.first_name
+        return self.to_first_name
     
     
 

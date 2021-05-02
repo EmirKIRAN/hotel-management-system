@@ -96,75 +96,12 @@
                         </ul>
                     </div>
                     <!--/col-->
-                    <button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">
+                    <a class="btn btn-success btn-block" href="{% url 'reservation' room.pk %}">
                         <i class="fas fa-calendar-check mr-2"></i>
                         Reservation
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
         <!-- ? Detail end -->
-        
-        <!-- Modal -->
-            <div class="container">
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header bg-warning">
-                                <h4 class="modal-title">Payment</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <form class="row g-3" action="https://google.com" method="GET">
-                                    <div class="col-md-6 mt-2">
-                                        <label for="surname" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                    </div>
-                                    <div class="col-md-6 mt-2">
-                                        <label for="surname" class="form-label">Surname</label>
-                                        <input type="text" class="form-control" id="surname" required>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <label for="adress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="adress" placeholder="1234 Main St">
-                                    </div>
-                                    <hr>
-                                    <div class="col-md-4 mt-3">
-                                        <i class="fab fa-cc-visa text-primary float-right" style="font-size: 50px;"></i>
-                                    </div>
-                                    <div class="col-md-4 mt-3 text-center">
-                                        <i class="fab fa-cc-discover text-danger" style="font-size: 50px;"></i>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <i class="fab fa-cc-mastercard text-warning float-left" style="font-size: 50px;"></i>
-                                    </div>
-                                    <div class="col-md-12 mt-4">
-                                        <label for="card_number" class="form-label">Card Number</label>
-                                        <input type="number" class="form-control" id="card_number" placeholder="**** **** *** *****" required>
-                                    </div>
-                                    <div class="col-md-6 mt-3">
-                                        <label for="ex_date" class="form-label">Expiration Date</label>
-                                        <input type="text" class="form-control" id="ex_date" placeholder="mm/yy" required>
-                                    </div>
-                                    <div class="col-md-6 mt-3">
-                                        <label for="valid" class="form-label">Validation</label>
-                                        <input type="text" class="form-control" id="valid" placeholder="***" required>
-                                    </div>
-                                    <div class="col-12 mt-4">
-                                        <button type="submit" class="btn btn-primary btn-block">Create Reservation</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- Modal end-->
         {% endblock %}

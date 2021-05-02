@@ -9,6 +9,14 @@
 {% block content %}
 <!-- ? Container -->
 <h3 class="display-4 text-center mt-5">all hotels</h3>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> {{message}}
+        </div>
+    {% endfor %}
+{% endif %}
 <section id="gallery" class="mt-5">
     <div class="container">
         <div class="row">

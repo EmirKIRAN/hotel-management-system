@@ -1,0 +1,81 @@
+{% extends 'partials/_base_main.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+
+        <!-- Modal -->
+        <div class="container mt-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8 mt-4 mb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-4 d-inline-block">
+                                <img src="{{room.image.url}}" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-8 d-inline-block float-right text-center">
+                                <h4 class="card-title mb-4">{{room.hotel.name}}</h4>
+                                <p class="text-success">{{room.number_of_beds}} beds</p>
+                                <h5 class="text-danger font-weight-bold"> Total : {{room.price}} €</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="display text-center mt-2">Payment</h3>
+        <div class="container">
+            <div class="row justify-content-center align-content-center">
+                <div class="col-md-8 mb-5">
+                    <form class="row g-3" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="col-md-6 mt-2">
+                            <label for="surname" class="form-label">Name</label>
+                            {{form.to_first_name}}
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="surname" class="form-label">Surname</label>
+                            {{form.to_last_name}}
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            {{form.email}}
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="adress" class="form-label">Address</label>
+                            {{form.address}}
+                        </div>
+                        <hr>
+                        <div class="col-md-4 mt-3">
+                            <i class="fab fa-cc-visa text-primary float-right" style="font-size: 50px;"></i>
+                        </div>
+                        <div class="col-md-4 mt-3 text-center">
+                            <i class="fab fa-cc-discover text-danger" style="font-size: 50px;"></i>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <i class="fab fa-cc-mastercard text-warning float-left" style="font-size: 50px;"></i>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="card_number" class="form-label">Card Number</label>
+                            {{form.card_number}}
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label for="ex_date" class="form-label">Expiration Date</label>
+                            <input type="text" class="form-control" id="ex_date" placeholder="mm/yy" required>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label for="valid" class="form-label">Validation</label>
+                            <input type="text" class="form-control" id="valid" placeholder="***" required>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary btn-block">Create Reservation</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    <!-- Modal end-->
+
+{% endblock %}

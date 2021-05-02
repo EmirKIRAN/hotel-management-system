@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from . models import Hotel, Room
 from django.views.generic.list import ListView
+from django.views.generic.edit import FormView
+from . forms import ReservationForm
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class HotelListView(ListView):
@@ -43,3 +47,23 @@ def search(request):
         'title' : 'Hotels'
     }
     return render(request, 'hotels.html', context=context)
+
+class ReservationView(SuccessMessageMixin, FormView):
+    template_name = 'reservation.html'
+    form_class = ReservationForm
+    context_object_name = 'room'
+    success_url = reverse_lazy('hotels')
+    success_message = "Your reservation has been created successfully"
+    
+    def form_valid(self, form):
+        reservation = form.save(commit=False)
+        _room = get_object_or_404(Room, id=self.kwargs['pk'])
+        reservation.room = _room
+        reservation.save()
+        return super().form_valid(reservation)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['room'] = Room.objects.get(id = self.kwargs['pk'])
+        context['title'] = 'Payment'
+        return context
