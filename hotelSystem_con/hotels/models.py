@@ -10,7 +10,7 @@ class Hotel(models.Model):
     slug = models.SlugField(max_length=50, unique=True, null=True)
     owner = models.ForeignKey('auth.User', on_delete=models.SET(get_sentinel_user), verbose_name='Otel sahibi', related_name='have_hotels')
     description = models.TextField(blank=True, null=True, verbose_name='Otel açıklaması')
-    image = models.ImageField(upload_to="hotels/")
+    image = models.ImageField(upload_to="hotels/", verbose_name="Otel Resmi")
     address = models.CharField(max_length=255,verbose_name='Adres')
     country = models.CharField(max_length=50,verbose_name='Ülke')
     city = models.CharField(max_length=50, verbose_name='Şehir')

@@ -16,7 +16,7 @@
                     <a href="{% url 'dashboard'%}" class="nav-link {% if 'dashboard' in request.path %}active{% endif %}">My Hotels</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'create_hotel'%}" class="nav-link {% if 'create' in request.path %}active{% endif %}">Create Hotel</a>
+                    <a href="{% url 'hotel_create' %}" class="nav-link {% if 'create' in request.path %}active{% endif %}">Create Hotel</a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'reservations' %}" class="nav-link {% if 'reservations' in request.path %}active{% endif %}">Reservations</a>

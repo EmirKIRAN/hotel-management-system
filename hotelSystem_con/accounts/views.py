@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
-from . forms import LoginForm, RegisterForm
+from django.shortcuts import render, redirect, get_object_or_404, Http404, HttpResponseRedirect
+from . forms import LoginForm, RegisterForm, HotelCreateForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse_lazy
+from django.utils.text import slugify
 import sys
 sys.path.append('..')
 from hotels.models import Room,Hotel, Reservation  
@@ -58,10 +60,6 @@ def user_dashboard(request):
         }
         return render(request, 'owner_index.html', context=context)
 
-def create_hotel(request):
-    return render(request, 'create_hotel.html')
-
-
 def user_logout(request):
 
     logout(request)
@@ -89,3 +87,29 @@ def user_reservations(request):
         'title' : 'Reservations'
     }
     return render(request, 'reservations.html', context=context)
+
+@login_required(login_url='login')
+def delete_room(request, hotel_slug, room_id):
+    _room = get_object_or_404(Room, id=room_id)
+    _room.delete()
+    return redirect('hotel_detail')
+
+@login_required(login_url='login')
+def user_create_hotel(request):
+
+    form = HotelCreateForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        hotel = form.save(commit=False)
+        hotel.owner = request.user
+        hotel.slug = slugify(hotel.name)
+        hotel.save()
+        return redirect('dashboard')
+
+    context = {
+        'form' : form,
+        'title' : 'Create hotel'
+    }
+    return render(request, 'create_hotel.html', context=context)
+
+
+
