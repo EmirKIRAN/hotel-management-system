@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -31,7 +32,6 @@ def user_login(request):
 
 
 
-
 def user_register(request):
     
     if request.method == 'POST':
@@ -45,13 +45,20 @@ def user_register(request):
 
     return render(request, 'register.html',{'form':form})
 
-
+@login_required(login_url='login')
 def user_dashboard(request):
+        
+        current_user = request.user
+        hotels = current_user.have_hotels.all()
 
-    context = {
-        'title' : 'my dashboard',
-    }
-    return render(request, 'owner_index.html', context=context)
+        context = {
+            'hotels': hotels,
+            'title' : 'my dashboard',
+        }
+        return render(request, 'owner_index.html', context=context)
+
+def create_hotel(request):
+    return render(request, 'create_hotel.html')
 
 
 def user_logout(request):

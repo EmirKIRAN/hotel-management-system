@@ -3,7 +3,7 @@
 <!-- ! Navbar -->
 <nav class="navbar navbar-dark navbar-expand-lg text-white" id="navbar-item">
     <div class="container" id="logo">
-        <a href="#" class="navbar-brand">
+        <a href="{% url 'dashboard' %}" class="navbar-brand">
             <img src="{% static 'images/Gold-crown-icon-vector-PNG.png' %%}" alt="logo" width="50" class="img-fluid">
             <strong class="align-middle">Kervansaray</strong>
         </a>
@@ -13,10 +13,10 @@
         <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbar-kervan">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">My Hotels</a>
+                    <a href="{% url 'dashboard'%}" class="nav-link {% if 'dashboard' in request.path %}active{% endif %}">My Hotels</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Create Hotel</a>
+                    <a href="{% url 'create_hotel'%}" class="nav-link {% if 'create' in request.path %}active{% endif %}">Create Hotel</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Reservations</a>

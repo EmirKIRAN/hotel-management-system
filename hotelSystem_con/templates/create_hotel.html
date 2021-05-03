@@ -1,0 +1,69 @@
+{% extends 'partials/_base_owner.html' %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+        {% block content %}
+        <!-- Form -->
+        <div class="container mt-5">
+            <div class="row justify-content-center align-content-center">
+                <h3 class="display-4">create a new hotel</h3>
+                <div class="col-md-8">
+                    <form action="/action_page.php" class="needs-validation mt-5" novalidate>
+                        <div class="form-group">
+                            <label for="hotelname">Hotel name :</label>
+                            <input type="text" class="form-control" id="hotelname" placeholder="Hotel name" name="hotelname" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adress">Adress :</label>
+                            <input type="text" class="form-control" id="adress" placeholder="Adress" name="adress" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City :</label>
+                            <input type="text" class="form-control" id="city" placeholder="City" name="city" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="detail">Detail:</label>
+                            <textarea class="form-control" rows="5" id="detail" required></textarea>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Hotel photo : </label>
+                            <input type="file" class="form-control-file border" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block my-5">Create hotel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Form end -->
+        {% endblock %}
+
+        {% block script %}
+        <script>
+            (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+                });
+            }, false);
+            })();
+        </script>
+        {% endblock %}

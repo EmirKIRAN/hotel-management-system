@@ -8,7 +8,7 @@ def get_sentinel_user():
 class Hotel(models.Model):
     name = models.CharField(max_length=255,verbose_name='Otel ismi')
     slug = models.SlugField(max_length=50, unique=True, null=True)
-    owner = models.ForeignKey('auth.User', on_delete=models.SET(get_sentinel_user), verbose_name='Otel sahibi')
+    owner = models.ForeignKey('auth.User', on_delete=models.SET(get_sentinel_user), verbose_name='Otel sahibi', related_name='have_hotels')
     description = models.TextField(blank=True, null=True, verbose_name='Otel açıklaması')
     image = models.ImageField(upload_to="hotels/")
     address = models.CharField(max_length=255,verbose_name='Adres')
