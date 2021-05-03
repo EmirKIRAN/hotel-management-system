@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, Http404, HttpResponseRedirect
-from . forms import LoginForm, RegisterForm, HotelCreateForm
+from . forms import LoginForm, RegisterForm, HotelCreateForm, RoomForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -73,7 +73,8 @@ def hotel_detail(request, hotel_slug):
 
     context = {
         'rooms':rooms,
-        'hotel':current_hotel
+        'hotel':current_hotel,
+        'title' : 'Hotel Detail'
     }
 
     return render(request, 'hotel_detail.html',context=context)
@@ -130,5 +131,35 @@ def user_update_hotel(request, hotel_slug):
     }
     return render(request, 'create_hotel.html', context=context)
 
+@login_required(login_url='login')
+def user_create_room(request, hotel_slug):
 
+    form = RoomForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        room = form.save(commit=False)
+        room.hotel = get_object_or_404(Hotel, slug=hotel_slug)
+        room.save()
+        return redirect('dashboard')
+        
+    context = {
+        'form' : form,
+        'title' : 'Create room',
+        'btn' : 'Create'
+    }
+    return render(request, 'create_room.html', context=context)
 
+@login_required(login_url='login')
+def user_update_room(request, hotel_slug, room_id):
+    
+    current_room = get_object_or_404(Room, id=room_id)
+    form = RoomForm(request.POST or None, request.FILES or None, instance=current_room)
+    if form.is_valid():
+        form.save()
+        return redirect('dashboard')
+
+    context = {
+        'form' : form,
+        'title' : 'Update room',
+        'btn' : 'Update'
+    }
+    return render(request, 'create_room.html', context=context)

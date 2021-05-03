@@ -8,13 +8,13 @@
         <!-- Form -->
         <div class="container mt-5">
             <div class="row justify-content-center align-content-center">
-                <h3 class="display-4">{{btn}} hotel</h3>
+                <h3 class="display-4">{{btn}} room</h3>
                 <div class="col-md-8">
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{form|crispy}}
                         <div class="col-12 mt-4">
-                            <button type="submit" class="btn btn-primary btn-block">{{btn}} Hotel</button>
+                            <button type="submit" class="btn btn-primary btn-block">{{btn}} Room</button>
                         </div>
                     </form>
                 </div>

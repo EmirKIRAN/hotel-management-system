@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 import sys
 sys.path.append('..')
-from hotels.models import Room,Hotel, Reservation
+from hotels.models import Room,Hotel
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
@@ -63,3 +63,9 @@ class HotelCreateForm(forms.ModelForm):
     class Meta:
         model = Hotel
         fields = ['name','description','image','address','country','city']
+
+class RoomForm(forms.ModelForm):
+    
+    class Meta:
+        model = Room
+        fields = ['number', 'number_of_beds', 'price', 'image', 'title', 'detail']
