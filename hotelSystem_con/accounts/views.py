@@ -107,7 +107,26 @@ def user_create_hotel(request):
 
     context = {
         'form' : form,
-        'title' : 'Create hotel'
+        'title' : 'Create hotel',
+        'btn' : 'Create'
+    }
+    return render(request, 'create_hotel.html', context=context)
+
+@login_required(login_url='login')
+def user_update_hotel(request, hotel_slug):
+
+    current_hotel = get_object_or_404(Hotel, slug=hotel_slug)
+    form = HotelCreateForm(request.POST or None, request.FILES or None, instance=current_hotel)
+    if form.is_valid():
+        hotel = form.save(commit=False)
+        hotel.slug = slugify(hotel.name)
+        hotel.save()
+        return redirect('dashboard')
+
+    context = {
+        'form' : form,
+        'title' : 'Update hotel',
+        'btn' : 'Update'
     }
     return render(request, 'create_hotel.html', context=context)
 
