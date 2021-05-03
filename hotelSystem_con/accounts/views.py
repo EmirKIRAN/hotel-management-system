@@ -3,6 +3,9 @@ from . forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+import sys
+sys.path.append('..')
+from hotels.models import Room,Hotel, Reservation  
 
 
 def user_login(request):
@@ -29,8 +32,6 @@ def user_login(request):
         form = LoginForm()
     
     return render(request, 'login.html', {'form':form})
-
-
 
 def user_register(request):
     
@@ -62,5 +63,29 @@ def create_hotel(request):
 
 
 def user_logout(request):
+
     logout(request)
     return redirect('index')
+
+@login_required(login_url='login')
+def hotel_detail(request, hotel_slug):
+
+    rooms = Room.objects.all().filter(hotel__slug=hotel_slug)
+    current_hotel = Hotel.objects.get(slug=hotel_slug)
+
+    context = {
+        'rooms':rooms,
+        'hotel':current_hotel
+    }
+
+    return render(request, 'hotel_detail.html',context=context)
+
+@login_required(login_url='login')
+def user_reservations(request):
+
+    reservations = Reservation.objects.all().filter(room__hotel__owner__id = request.user.id)
+    context = {
+        'reservations':reservations,
+        'title' : 'Reservations'
+    }
+    return render(request, 'reservations.html', context=context)

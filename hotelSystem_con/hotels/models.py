@@ -25,7 +25,7 @@ class Room(models.Model):
     image = models.ImageField(upload_to="rooms/")
     title = models.CharField(max_length=100, verbose_name="İçerik başlığı")
     detail = models.TextField(verbose_name="Oda detayları")
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='do_joining')
     available = models.BooleanField(default=False, verbose_name="Kiralandı mı?")
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Reservation(models.Model):
     to_last_name = models.CharField(max_length=80, verbose_name="Soyad")
     date = models.DateTimeField(verbose_name="Rezervasyon Tarihi", auto_now_add=True)
     address = models.CharField(max_length=255, verbose_name="Adres")
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Kiralanan Oda")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Kiralanan Oda", related_name='doing')
     card_number = models.CharField(max_length=25,verbose_name="Kart numarası")
     email = models.EmailField(verbose_name="Mail adresi")
 

@@ -17,7 +17,7 @@ class HotelListView(ListView):
         context['title'] = 'Hotels'
         return context
 
-def hotel_detail(request, hotel_slug):
+def index_hotel_detail(request, hotel_slug):
     rooms = Room.objects.filter(hotel__slug = hotel_slug)
     context = {
         'rooms':rooms,
