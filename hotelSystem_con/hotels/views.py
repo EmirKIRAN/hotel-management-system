@@ -6,6 +6,8 @@ from . forms import ReservationForm
 from django.urls import reverse_lazy
 
 
+# ! hotels listed by their id's
+# ! id numbers high to low
 class HotelListView(ListView):
     model = Hotel
     template_name = 'hotels.html'
@@ -17,6 +19,8 @@ class HotelListView(ListView):
         context['title'] = 'Hotels'
         return context
 
+# rooms listed according to the received hotel slug parameter
+# its filtered by hotel slug field
 def index_hotel_detail(request, hotel_slug):
     rooms = Room.objects.filter(hotel__slug = hotel_slug)
     context = {
@@ -26,6 +30,7 @@ def index_hotel_detail(request, hotel_slug):
 
     return render(request, 'room_list.html', context=context)
 
+# The information about the room was brought according to the room number.
 def room_detail(request, hotel_slug, room_id):
     room = Room.objects.get(hotel__slug=hotel_slug, id=room_id)
     context = {
@@ -34,6 +39,9 @@ def room_detail(request, hotel_slug, room_id):
     }
 
     return render(request, 'room.html', context=context)
+
+# for search section under navbar area
+# The search is performed by city name, number of beds and hotel name.
 
 def search(request):
     city = request.GET['city']
@@ -47,6 +55,7 @@ def search(request):
     }
     return render(request, 'hotels.html', context=context)
 
+# this metod is for reservation process
 class ReservationView(FormView):
     template_name = 'reservation.html'
     form_class = ReservationForm
